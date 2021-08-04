@@ -1,38 +1,48 @@
-
+//const { prefix } = require('./config.json');
+const fs = require('fs');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v8');
+const { Discord, Client, Collection, Intents } = require('discord.js');
 const token = require('./token.json');
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = 'kt!';
 
-client.on('ready', () => {
-	console.log(`Logged in as ${client.user.tag}!`); //Write using tilde quites (` vs ') to let the formatting function
-    
-});
-async function sendAsync(message, arg) {
-	await message.channel.send(arg);
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+client.commands = new Collection();
 
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
 }
-client.on('message', async message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return; // Cancels command if said message is either missing the prefix or the message sender is a bot
 
-	const args = message.content.slice(prefix.length).trim().split(/ +/); //Removes the prefix from the command and saves them in a list named 'args'
-	const command = args.shift().toLowerCase(); // Shifts the command to lowercase and stores it in a constant sting variable named 'command'
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
-	switch (command) { // Usage of switch case for i dont know reasons
-		case 'ping':
-			await message.channel.send(`Pong! \`${Date.now() - message.createdTimestamp}ms. API: ${Math.round(client.ws.ping)}ms\``); 
-			// Sends message and API latency to the channel the command was sent in
-			break;
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args, client));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args, client));
+	}
+}
 
-		case 'timeout':
-			await message.channel.send('I will send a second message in 2 seconds.');
-			setTimeout(function(){
-				message.channel.send('boobies');
-			}, 2000); // USE THIS IN THE FUTURE, FUCK YOU FUTURE ME
-			break;
+const commands = client.commands.map(({ execute, ...data }) => data); 
 
-	};
-}); //End of client.on 'message' block
+const rest = new REST({ version: '8' }).setToken(token);
+
+(async () => {
+	try {
+		console.log('Started refreshing application (/) commands.');
+
+		await rest.put(
+			Routes.applicationGuildCommands('610044394854416404', '711790203148304404' ),
+			{ body: commands },
+		);
+
+		console.log('Successfully reloaded application (/) commands.');
+	} catch (error) {
+		console.error(error);
+	}
+})();
 
 client.login(token);
-
