@@ -32,14 +32,14 @@ const rest = new REST({ version: '8' }).setToken(token);
 
 (async () => {
 	try {
-		console.log('Started refreshing application (/) commands.');
+		console.log('Started refreshing local application (/) commands.');
 
 		await rest.put(
 			Routes.applicationGuildCommands('610044394854416404', '711790203148304404' ),
 			{ body: commands },
 		);
 
-		console.log('Successfully reloaded application (/) commands.');
+		console.log('Successfully reloaded local application (/) commands.');
 	} catch (error) {
 		console.error(error);
 	}

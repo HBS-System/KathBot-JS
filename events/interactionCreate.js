@@ -4,7 +4,7 @@ module.exports = {
 		if (!interaction.isCommand()) return;
 
 	    try {
-			client.commands.get(interaction.commandName).execute(interaction);
+			client.commands.get(interaction.commandName).execute(interaction, client);
 		} catch (error) {
 			console.error(error);
 			interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
