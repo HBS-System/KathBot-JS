@@ -41,7 +41,7 @@ const rest = new REST({ version: '8' }).setToken(token);
 
 		console.log('Successfully reloaded local application (/) commands.');
 	} catch (error) {
-		console.error(error);
+		console.log(error);
 	}
 })();
 
