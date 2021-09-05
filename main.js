@@ -1,14 +1,16 @@
-//const { prefix } = require('./config.json');
 const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v8');
 const { Client, Collection, Intents } = require('discord.js');
+
 const token = require('./token.json');
 const botid = '610044394854416404';
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 client.commands = new Collection();
 
+
+//Below code is for loading comands from commands folder
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -16,6 +18,8 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+
+//Below code is for loading events from events folder
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles) {
@@ -27,6 +31,8 @@ for (const file of eventFiles) {
 	}
 }
 
+
+//Below code is for local/global slash command publishing
 const commands = client.commands.map(({ execute, ...data }) => data); 
 
 const rest = new REST({ version: '9' }).setToken(token);
@@ -53,4 +59,6 @@ const rest = new REST({ version: '9' }).setToken(token);
 	}
 })();
 
+
+//self explanatory
 client.login(token);

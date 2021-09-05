@@ -4,7 +4,8 @@ module.exports = {
 	options: [{
 		name: "question",
 		description: "The question you want to ask.",
-		type: "3"
+		type: "3",
+		required: "true"
 	}],
 	
 	async execute(interaction) {
@@ -34,7 +35,7 @@ module.exports = {
 			"Very doubtful.",
 		]
 
-		await interaction.reply('Hmmm... I rate ' + option.value + ' a ' + Math.floor(Math.random() * 11).toString());
+		await interaction.reply('To \"${option.value}\" the all-mighty 8ball answers with the following: ${response[Math.floor(Math.random() * response.length)]}');
 
 	},
 };
