@@ -6,6 +6,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const token = require('./token.json');
 const botid = '610044394854416404';
 
+//Create the client
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 client.commands = new Collection();
 
@@ -58,7 +59,6 @@ const rest = new REST({ version: '9' }).setToken(token);
 		console.error(error);
 	}
 })();
-
 
 //self explanatory
 client.login(token);
