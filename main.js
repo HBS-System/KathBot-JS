@@ -10,7 +10,6 @@ const botid = '610044394854416404';
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 client.commands = new Collection();
 
-
 //Below code is for loading comands from commands folder
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 

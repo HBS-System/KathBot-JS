@@ -5,7 +5,9 @@ module.exports = {
 		if(interaction.user.id != '456282270974607361'){
 			await interaction.reply('You cannot command me, Mortal!');
 		} else {
-			await interaction.reply('This command is currently in development.');
+
+
+			
 		}
 	},
 };

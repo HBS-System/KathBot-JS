@@ -1,4 +1,4 @@
-const fs = require('fs');
+const commands = require('../main.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v8');
 
@@ -8,12 +8,10 @@ const botid = '610044394854416404';
 module.exports = {
 	name: 'publish',
 	description: '!OWNER ONLY! Refreshes commands globally. May take an hour to complete.',
-	async execute(interaction, client) {
+	async execute(interaction) {
 		if(interaction.user.id != '456282270974607361'){
 			await interaction.reply('You cannot command me, Mortal!');
 		} else {
-			const commands = client.commands.map(({ execute, ...data }) => data); 
-
 			const rest = new REST({ version: '9' }).setToken(token);
 
 			(async () => {
@@ -27,8 +25,8 @@ module.exports = {
 					);
 					//Above block is used to publish all commands to ALL servers.
 
-					console.log('Command: Successfully reloaded global application (/) commands.');
-					await interaction.editReply('Successfully reloaded global application (/) commands.');
+					console.log('Command: Successfully began refresh of global application (/) commands.\nPlease allow a minimum of one hour for all servers to update.');
+					await interaction.editReply('Successfully began refresh of global application (/) commands.\nPlease allow a minimum of one hour for all servers to update.');
 				} catch (error) {
 					console.log(error);
 					await interaction.editReply('An error has occurred.');
