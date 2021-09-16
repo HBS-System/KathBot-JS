@@ -2,7 +2,7 @@ module.exports = {
 	name: 'status',
 	description: '!OWNER ONLY! Adds the given argument to the bot\'s status.',
 	options: [{
-		name: 'status',
+		name: 'argument',
 		description: 'What to add to the status.',
 		type: '3',
 		required: 'true'

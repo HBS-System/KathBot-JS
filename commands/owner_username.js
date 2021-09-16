@@ -2,7 +2,7 @@ module.exports = {
 	name: 'username',
 	description: '!OWNER ONLY! Changes the bot\'s username.',
 	options: [{
-		name: 'username',
+		name: 'argument',
 		description: 'What to change the bot\'s name to.',
 		type: '3',
 		required: 'true'
@@ -12,7 +12,7 @@ module.exports = {
 			await interaction.reply('You cannot command me, Mortal!');
 		} else {
             try {
-                option = interaction.options.get('argument')
+                option = interaction.options.get('username')
                 client.user.setUsername(option.value);
                 await interaction.reply(`Username has been changed to: \`${option.value}\``);
             } catch(error) {
