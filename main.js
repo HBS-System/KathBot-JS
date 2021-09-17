@@ -4,7 +4,7 @@ const { Routes } = require('discord-api-types/v8');
 const { Client, Collection, Intents } = require('discord.js');
 
 const token = require('./token.json');
-const botid = '596683881575612429';
+const botid = '610044394854416404';
 
 //Create the client
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -47,10 +47,10 @@ const rest = new REST({ version: '9' }).setToken(token);
 		); 
 		//Above block is used to reload all commands to the development server ONLY.
 
-		await rest.put(
+		/*await rest.put(
 			Routes.applicationCommands(botid), 
 			{ body: commands },
-		);
+		);*/
 		//Above block is used to publish all commands to ALL servers.
 
 		console.log('Successfully reloaded local application (/) commands.');
