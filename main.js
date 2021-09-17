@@ -4,7 +4,7 @@ const { Routes } = require('discord-api-types/v8');
 const { Client, Collection, Intents } = require('discord.js');
 
 const token = require('./token.json');
-const botid = '610044394854416404';
+const botid = '596683881575612429';
 
 //Create the client
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
