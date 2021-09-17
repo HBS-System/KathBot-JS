@@ -47,10 +47,10 @@ const rest = new REST({ version: '9' }).setToken(token);
 		); 
 		//Above block is used to reload all commands to the development server ONLY.
 
-		/*await rest.put(
+		await rest.put(
 			Routes.applicationCommands(botid), 
 			{ body: commands },
-		);*/ 
+		);
 		//Above block is used to publish all commands to ALL servers.
 
 		console.log('Successfully reloaded local application (/) commands.');
