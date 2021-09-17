@@ -1,7 +1,14 @@
 module.exports = {
 	name: 'say',
 	description: 'Makes me say words!',
+	options: [{
+		name: 'argument',
+		description: 'What to make the bot repeat',
+		type: '3',
+		required: 'true'
+	}],
 	async execute(interaction) {
-		await interaction.reply('This command is currently in development.');
+		option = interaction.options.get('argument')
+		await interaction.reply(option.value);
 	},
 };

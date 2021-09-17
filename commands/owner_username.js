@@ -12,7 +12,7 @@ module.exports = {
 			await interaction.reply('You cannot command me, Mortal!');
 		} else {
             try {
-                option = interaction.options.get('username')
+                option = interaction.options.get('argument')
                 client.user.setUsername(option.value);
                 await interaction.reply(`Username has been changed to: \`${option.value}\``);
             } catch(error) {

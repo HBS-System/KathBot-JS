@@ -8,6 +8,8 @@ module.exports = {
 			.setColor('#ff88ff')
 			.setTitle('Here\'s a list of my current commands!')
 			.setAuthor(interaction.user.tag, interaction.user.avatarURL())
+			.setTimestamp()
+			.setFooter('Created by: undef_#0314')
 			.addFields(
 				{ name: '8ball:		Shake the magical 8ball!', value: 'Usage: `/8ball [argument]`' },
 				{ name: 'cat:		WIP', value: 'Usage: `/cat`' },
@@ -19,9 +21,7 @@ module.exports = {
 				{ name: 'rate:		Rates any given argument.', value: 'Usage: `/rate [argument]`' },
 				{ name: 'say:		Makes the bot repeat the given argument.', value: 'Usage: `/say [argument]`' },
 				{ name: 'tarot:		WIP', value: 'Usage: `/tarot`' },
-			)
-			.setTimestamp()
-			.setFooter('Created by: undef_#0314');
+			);
 
 		interaction.reply({ embeds: [embed] })
 			.catch(console.error);
