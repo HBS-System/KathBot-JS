@@ -11,8 +11,8 @@ module.exports = {
 			.setTimestamp()
 			.setFooter('Created by: undef_#0314')
 			.addFields(
-				{ name: 'Development:', value: 'https://discord.com/oauth2/authorize?client_id=610044394854416404&scope=bot&permissions=2147500096' },
-				{ name: 'Release:', value: 'https://discord.com/oauth2/authorize?client_id=596683881575612429&scope=bot&permissions=2147500096' },
+				{ name: 'Development:', value: 'https://discord.com/oauth2/authorize?client_id=610044394854416404&scope=applications.commands' },
+				{ name: 'Release:', value: 'https://discord.com/oauth2/authorize?client_id=596683881575612429&scope=applications.commands' },
 			);
 
 		interaction.reply({ embeds: [embed] })
