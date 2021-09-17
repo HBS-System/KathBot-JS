@@ -16,8 +16,8 @@ module.exports = {
 
 			(async () => {
 				try {
-					console.log('Command: Started refreshing global application (/) commands.');
-					await interaction.deferReply('Started refreshing global application (/) commands...');
+					console.log('Command: Clearing local application (/) commands...');
+					await interaction.deferReply('Clearing local application (/) commands...');
 
 					await rest.put(
 						Routes.applicationCommands(botid), 
@@ -25,8 +25,8 @@ module.exports = {
 					);
 					//Above block is used to publish all commands to ALL servers.
 
-					console.log('Command: Successfully began refresh of global application (/) commands.\nPlease allow a minimum of one hour for all servers to update.');
-					await interaction.editReply('Successfully began refresh of global application (/) commands.\nPlease allow a minimum of one hour for all servers to update.');
+					console.log('Command: Successfully cleared local application (/) commands.');
+					await interaction.editReply('Successfully cleared local application (/) commands.');
 				} catch (error) {
 					console.log(error);
 					await interaction.editReply('An error has occurred.');
