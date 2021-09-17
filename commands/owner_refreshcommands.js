@@ -3,7 +3,7 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v8');
 
 const token = require('../token.json');
-const botid = '610044394854416404';
+const botid = '596683881575612429';
 
 module.exports = {
 	name: 'refresh',
