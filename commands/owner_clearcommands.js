@@ -20,10 +20,9 @@ module.exports = {
 					await interaction.deferReply('Clearing local application (/) commands...');
 
 					await rest.put(
-						Routes.applicationCommands(botid), 
+						Routes.applicationCommands(botid, interaction.guild.id),
 						{ body: '' },
 					);
-					//Above block is used to publish all commands to ALL servers.
 
 					console.log('Command: Successfully cleared local application (/) commands.');
 					await interaction.editReply('Successfully cleared local application (/) commands.');
