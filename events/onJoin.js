@@ -12,7 +12,7 @@ module.exports = {
 
 		(async () => {
 			try {
-				console.log('Command: Started refreshing local application (/) commands.');
+				console.log('onJoin: Started refreshing local application (/) commands.');
 
 				await rest.put(
 					Routes.applicationGuildCommands(botid, guild.id), //Used to reload all commands to the server this command was run in.
@@ -26,7 +26,7 @@ module.exports = {
 				);*/ 
 				//Above block is used to publish all commands to ALL servers.
 
-				console.log('Command: Successfully reloaded local application (/) commands.');
+				console.log('onJoin: Successfully reloaded local application (/) commands.');
 			} catch (error) {
 				console.log(error);
 			}

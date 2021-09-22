@@ -39,7 +39,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 
 (async () => {
 	try {
-		console.log('Started refreshing local application (/) commands.');
+		console.log('Started refreshing local & global application (/) commands.');
 
 		await rest.put(
 			Routes.applicationGuildCommands(botid, '711790203148304404' ), //Used to reload all commands to the development server ONLY.
@@ -53,7 +53,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 		);
 		//Above block is used to publish all commands to ALL servers.
 
-		console.log('Successfully reloaded local application (/) commands.');
+		console.log('Successfully reloaded local & global application (/) commands.\nPlease allow a minimum of one hour for all servers to update global commands.');
 	} catch (error) {
 		console.error(error);
 	}
