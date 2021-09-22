@@ -1,3 +1,5 @@
+const seedrandom = require('seedrandom');
+  
 module.exports = {
 	name: 'rate',
 	description: 'Rates the given arguments.',
@@ -9,6 +11,7 @@ module.exports = {
 	}],
 	async execute(interaction) {
 		option = interaction.options.get('argument')
-		await interaction.reply(`Hmmm... I rate ${option.value} a ${Math.floor(Math.random() * 11).toString()}/10!`);
+		var rng = seedrandom(option.value);
+		await interaction.reply(`Hmmm... I rate ${option.value} a ${Math.floor(rng() * 11).toString()}/10!`);
 	},
 };
