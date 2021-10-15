@@ -1,9 +1,9 @@
 const commands = require('../main.js');
+const botid = require('../main.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v8');
 
-const token = require('../token.json');
-const botid = '610044394854416404';
+const token = require('../token.json')
 
 module.exports = {
 	name: 'publish',
@@ -16,8 +16,8 @@ module.exports = {
 
 			(async () => {
 				try {
-					console.log('Command: Started refreshing global application (/) commands.');
-					await interaction.deferReply('Started refreshing global application (/) commands...');
+					console.log('Command: Starting refreshing global application (/) commands...');
+					await interaction.deferReply('Starting refreshing global application (/) commands...');
 
 					await rest.put(
 						Routes.applicationCommands(botid), 

@@ -1,9 +1,9 @@
 const commands = require('../main.js');
+const botid = require('../main.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v8');
 
 const token = require('../token.json');
-const botid = '610044394854416404';
 
 module.exports = {
 	name: 'refresh',
