@@ -5,3 +5,5 @@ module.exports = {
 		await interaction.reply('This command is currently in development.');
 	},
 };
+
+//i plan to do this with an image scraper on duckduckgo

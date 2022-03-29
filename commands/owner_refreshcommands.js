@@ -24,13 +24,6 @@ module.exports = {
 						Routes.applicationGuildCommands(botid, interaction.guild.id), //Used to reload all commands to the server this command was run in.
 						{ body: commands },
 					); 
-					//Above block is used to reload all commands to the server the command is run in.
-	
-					/*await rest.put(
-						Routes.applicationCommands(botid), 
-						{ body: commands },
-					);*/ 
-					//Above block is used to publish all commands to ALL servers.
 
 					console.log('Command: Successfully reloaded local application (/) commands.');
 					await interaction.editReply('Successfully reloaded local application (/) commands.');

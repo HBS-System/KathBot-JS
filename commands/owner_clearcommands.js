@@ -6,7 +6,7 @@ const token = require('../token.json');
 
 module.exports = {
 	name: 'clearcommands',
-	description: '!OWNER ONLY! Refreshes commands globally. May take an hour to complete.',
+	description: '!OWNER ONLY! Clears commands globally.',
 	async execute(interaction) {
 		if(interaction.user.id != '456282270974607361'){
 			await interaction.reply('You cannot command me, Mortal!');

@@ -22,6 +22,8 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+const commands = client.commands.map(({ execute, ...data }) => data); 
+
 
 //Below code is for loading events from events folder
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
@@ -35,9 +37,6 @@ for (const file of eventFiles) {
 	}
 }
 
-
-//Below code is for local/global slash command publishing
-const commands = client.commands.map(({ execute, ...data }) => data); 
 
 const rest = new REST({ version: '9' }).setToken(token);
 

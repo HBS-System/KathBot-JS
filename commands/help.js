@@ -15,7 +15,7 @@ module.exports = {
 				{ name: 'cat:		WIP', value: 'Usage: `/cat`' },
 				{ name: 'info:		Gives you information about this bot.', value: 'Usage: `/info`' },
 				{ name: 'invite:	Gives you the link to invite this bot.', value: 'Usage: `/invite`' },
-				{ name: 'jotekick:	WIP', value: 'Usage: `/votekick`' },
+				{ name: 'jokekick:	WIP', value: 'Usage: `/jokekick`' },
 				{ name: 'ping:		Sends the current API and bot latency.', value: 'Usage: `/ping`' },
 				{ name: 'quote:		WIP', value: 'Usage: `/quote`' },
 				{ name: 'rate:		Rates any given argument.', value: 'Usage: `/rate [argument]`' },

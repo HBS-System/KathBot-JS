@@ -1,3 +1,5 @@
 token.json
-.vscode/
 workspace.code-workspace
+
+.metadata/
+.vscode/
